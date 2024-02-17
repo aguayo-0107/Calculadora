@@ -2,7 +2,7 @@ package Proyecto;
 public class Pruebas {
     
     public static void main(String[] args) {
-        PilaA postfija = new PilaA();
+        PilaA<Object>  postfija = new PilaA<Object> ();
         String cadena = "-1+2*(3-1)";
         String cadena1 = cadena;
         boolean resB;

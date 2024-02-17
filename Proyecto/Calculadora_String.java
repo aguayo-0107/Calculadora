@@ -4,9 +4,9 @@ package Proyecto;
  * Calculadora, devuelve un string con la respuesta o error
  */
 public class Calculadora_String {
-    public static void invertir (PilaADT pila) {
-        PilaA extra = new PilaA();
-        PilaA extra2 = new PilaA();
+    public static void invertir (PilaADT<Object> pila) {
+        PilaA<Object> extra = new PilaA<Object>();
+        PilaA<Object> extra2 = new PilaA<Object>();
         
         while(!pila.isEmpty()) {
             extra.push(pila.pop());
@@ -20,7 +20,7 @@ public class Calculadora_String {
     }
     
     public static boolean chequeo (String cadena) {
-        PilaA chequeo = new PilaA();
+        PilaA<Object> chequeo = new PilaA<Object>();
         boolean res = true;
         
         //checar que no termine en operador
@@ -101,7 +101,7 @@ public class Calculadora_String {
                 }
             }
         }
-        //unir el arreglo de neuvo
+        //unir el arreglo de nuevo
         for (int i=0; i<charas.length; i++) {
             cad.append(charas[i]);
         }
@@ -134,9 +134,9 @@ public class Calculadora_String {
         return res;
     }
    
-    public static PilaA cambioPostfija (String cadena) {
-        PilaA postfija = new PilaA();
-        PilaA pilaOperadores = new PilaA();
+    public static PilaA<Object> cambioPostfija (String cadena) {
+        PilaA<Object> postfija = new PilaA <>();
+        PilaA<Object> pilaOperadores = new PilaA <>();
         boolean neg = false;
         Double numero;
         String [] charas;
@@ -191,8 +191,8 @@ public class Calculadora_String {
         return postfija;
     }
    
-   public static String eval (PilaA postfija) {
-        PilaA extra = new PilaA();
+   public static String eval (PilaA<Object> postfija) {
+        PilaA<Object> extra = new PilaA<Object> ();
         boolean ab = false;
         char oper;
         double b, a=0, x=0;
@@ -257,7 +257,7 @@ public class Calculadora_String {
         return res;
     }
    public static String calcular (String cadena) {
-       PilaA postfija;
+       PilaA<Object>  postfija;
        String res;
        
        if(chequeo(cadena)) {

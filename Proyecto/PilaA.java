@@ -9,15 +9,18 @@ public class PilaA <T> implements PilaADT <T> {
     private int tope;
     private final int MAX = 100;
     
+    @SuppressWarnings("unchecked")
     public PilaA() {
         pila = (T[])new Object[MAX];
         tope = -1;
     }
+    @SuppressWarnings("unchecked")
     public PilaA (int max) {
         pila = (T[]) new Object [max];
         tope = -1;
     }
 
+    @SuppressWarnings("unchecked")
     public void push(Object dato) {
         if (tope+1 == pila.length) {
             expande();
@@ -26,6 +29,7 @@ public class PilaA <T> implements PilaADT <T> {
         pila[tope] = (T)dato;
     }
     public void expande() {
+        @SuppressWarnings("unchecked")
         T[] masGrande = (T[]) new Object [pila.length*2];
         
         for (int i=0; 1<pila.length; i++) {

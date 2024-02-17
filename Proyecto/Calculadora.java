@@ -7,8 +7,8 @@ package Proyecto;
 
 public class Calculadora {
     public static void invertir (PilaA <Object> pila) {
-        PilaA extra = new PilaA();
-        PilaA extra2 = new PilaA();
+        PilaA<Object>  extra = new PilaA<Object> ();
+        PilaA<Object>  extra2 = new PilaA<Object> ();
         
         while(!pila.isEmpty()) {
             extra.push(pila.pop());
@@ -22,7 +22,7 @@ public class Calculadora {
     }
     
     public static boolean chequeo (String cadena) {
-        PilaA chequeo = new PilaA ();
+        PilaA<Object>  chequeo = new PilaA<Object>  ();
         boolean res = true;
         
         //checar que no termine en operador
@@ -137,9 +137,9 @@ public class Calculadora {
         return res;
     }
    
-    public static PilaA cambioPostfija (String cadena) {
-        PilaA postfija = new PilaA();
-        PilaA pilaOperadores = new PilaA();
+    public static PilaA<Object>  cambioPostfija (String cadena) {
+        PilaA<Object>  postfija = new PilaA<Object> ();
+        PilaA<Object>  pilaOperadores = new PilaA<Object> ();
         boolean neg = false;
         Double numero;
         String [] charas;
@@ -194,8 +194,8 @@ public class Calculadora {
         return postfija;
     }
    
-   public static double eval (PilaA postfija) {
-        PilaA extra = new PilaA();
+   public static double eval (PilaA<Object>  postfija) {
+        PilaA<Object>  extra = new PilaA<Object> ();
         boolean ab = false;
         char oper;
         double b, res=0, a=0, x=0;
@@ -260,7 +260,7 @@ public class Calculadora {
         return res;
     }
    public static double calcular (String cadena) {
-       PilaA postfija;
+       PilaA<Object>  postfija;
        double res;
        
        if(chequeo(cadena)) {
