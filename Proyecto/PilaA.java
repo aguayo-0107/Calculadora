@@ -21,6 +21,7 @@ public class PilaA <T> implements PilaADT <T> {
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public void push(Object dato) {
         if (tope+1 == pila.length) {
             expande();
@@ -37,7 +38,7 @@ public class PilaA <T> implements PilaADT <T> {
         }
         pila = masGrande;
     }
-
+    @Override
     public T pop() {
         T eliminado;
         
@@ -50,17 +51,18 @@ public class PilaA <T> implements PilaADT <T> {
         return eliminado;
         
     }
-
+    @Override
     public boolean isEmpty() {
         return tope == -1;
     }
-
+    @Override
     public T peek() {
         if (this.isEmpty()){
             throw new ExcepcionColeccionVacia("La pila esta vacia");
         }
         return pila[tope];
     }
+    @Override
     public String toString() {
         StringBuilder res = new StringBuilder ("Pila de 0 a tope\n");
         
@@ -68,6 +70,22 @@ public class PilaA <T> implements PilaADT <T> {
             res.append(pila[i] + ", ");
         }
         return res.toString();
+    }
+    
+    public boolean equals(PilaA<Object> otro){
+        boolean ans=true;
+        PilaA<Object> aux1= new PilaA<>();
+        PilaA<Object> aux2=new PilaA<>();
+        while(!this.isEmpty() && !otro.isEmpty()){
+            aux1.push(this.pop());
+            aux2.push(otro.pop());
+            ans&= (aux1.peek()).equals(aux2.peek());
+        }
+        while(!aux1.isEmpty() && !aux2.isEmpty()){
+            this.push(aux1.pop());
+            otro.push(aux2.pop());
+        }
+        return ans;
     }
     
 }
