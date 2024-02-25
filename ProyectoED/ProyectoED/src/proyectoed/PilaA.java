@@ -117,4 +117,20 @@ public class PilaA <T> implements PilaADT <T> {
         }
         return res.toString();
     }
+    
+      public boolean equals(PilaA<Object> otro){
+         boolean ans=true;
+         PilaA<Object> aux1= new PilaA<>();
+         PilaA<Object> aux2=new PilaA<>();
+         while(!this.isEmpty() && !otro.isEmpty()){
+             aux1.push(this.pop());
+             aux2.push(otro.pop());
+             ans&= (aux1.peek()).equals(aux2.peek());
+         }
+         while(!aux1.isEmpty() && !aux2.isEmpty()){
+             this.push(aux1.pop());
+             otro.push(aux2.pop());
+         }
+         return ans;
+     }
 }
