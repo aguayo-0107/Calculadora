@@ -24,7 +24,7 @@ public class Calculadora {
     public static boolean chequeo (String cadena) {
         PilaA<Object>  chequeo = new PilaA<Object>  ();
         boolean res = true;
-        
+        res&=!cadena.isEmpty();
         //checar que no termine en operador
         if (cadena.endsWith("+") || cadena.endsWith("-") || cadena.endsWith("*") || cadena.endsWith("/") || cadena.endsWith("^")) {
             res = false;
